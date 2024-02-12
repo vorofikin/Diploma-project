@@ -1,0 +1,27 @@
+{
+  "name": "generator-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start:dev": "nodemon -w ./src -x node --experimental-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
+  },
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.18.2",
+    "global": "^4.4.0",
+    "http": "^0.0.1-security",
+    "nodemon": "^3.0.3",
+    "redis": "^4.6.13",
+    "socket.io": "^4.7.4",
+    "socket.io-client": "^4.7.4",
+    "typescript": "^5.3.3",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "ts-node": "^10.9.1"
+  }
+}

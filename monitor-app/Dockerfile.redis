@@ -1,0 +1,6 @@
+FROM redis:latest
+
+COPY ./scripts/init-redis.bash /usr/local/bin/init-redis.bash
+COPY ./scripts/init.redis /usr/local/bin/init.redis
+
+CMD ["sh", "/usr/local/bin/init-redis.bash"]

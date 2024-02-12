@@ -1,73 +1,43 @@
 services:
-  monitor-app:
-    container_name: monitor-app
+  server:
     build:
-      context: ./monitor-app
+      context: .
       dockerfile: Dockerfile
+      target: dev
     command: yarn run start:dev
     environment:
       NODE_ENV: production
     ports:
       - 3000:3000
-    networks:
-      - internalnet
     develop:
       watch:
         - action: sync
-          path: ./monitor-app
-          target: /usr/src/monitor-app
+          path: .
+          target: /usr/src/app
           ignore:
-            - monitor-app/node_modules/
+            - node_modules/
         - action: rebuild
-          path: ./monitor-app/package.json
-  generator-app:
-    container_name: generator-app
-    build:
-      context: ./generator-app
-      dockerfile: Dockerfile
-    command: yarn run start:dev
-    networks:
-      - internalnet
-    environment:
-      NODE_ENV: production
-    ports:
-      - 3001:3001
-    image: node:18
-    develop:
-      watch:
-        - action: sync
-          path: ./generator-app
-          target: /usr/src/generator-app
-          ignore:
-            - generator-app/node_modules/
-        - action: rebuild
-          path: ./generator-app/package.json
+          path: ./package.json
   cache_service:
-    #    command:
-    #      - 'redis-cli SET SecondBranchSaturatedSolutionTemp 90'
-    #      - 'redis-cli SET ThirdBranchSaturatedSolutionTemp 104'
-    #      - 'redis-cli SET DeeplyRegeneratedSolution 70'
-    #      - 'redis-cli SET VaporGasMixtureTemperature 80'
-    #      - 'redis-cli SET VaporGasMixturePressure 0.17'
-    #      - 'redis-cli SET ConvertedGasPressure 2.8'
-    #      - 'redis-cli SET ConvertedGasTemperature 30'
-    #      - 'redis-cli save'
+    command:
+      - 'redis-cli SET SecondBranchSaturatedSolutionTemp 90'
+      - 'redis-cli SET ThirdBranchSaturatedSolutionTemp 104'
+      - 'redis-cli SET DeeplyRegeneratedSolution 70'
+      - 'redis-cli SET VaporGasMixtureTemperature 80'
+      - 'redis-cli SET VaporGasMixturePressure 0.17'
+      - 'redis-cli SET ConvertedGasPressure 2.8'
+      - 'redis-cli SET ConvertedGasTemperature 30'
+      - 'redis-cli save'
     container_name: cache_service
     image: redis:latest
     ports:
       - "6379:6379"
     networks:
       - internalnet
-    volumes:
-      - cache_service:/data
 
 networks:
   internalnet:
     driver: bridge
-
-volumes:
-  cache_service:
-    driver: local
 # The commented out section below is an example of how to define a PostgreSQL
 # database that your application can use. `depends_on` tells Docker Compose to
 # start the database before your application. The `db-data` volume persists the

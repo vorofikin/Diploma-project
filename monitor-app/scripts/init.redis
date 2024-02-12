@@ -1,0 +1,7 @@
+SET SecondBranchSaturatedSolutionTemp 90
+SET ThirdBranchSaturatedSolutionTemp 104
+SET DeeplyRegeneratedSolution 70
+SET VaporGasMixtureTemperature 80
+SET VaporGasMixturePressure 0.17
+SET ConvertedGasPressure 2.8
+SET ConvertedGasTemperature 30
