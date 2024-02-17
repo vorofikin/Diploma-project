@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "cd ./monitor-app && yarn run dev && cd .. && cd ./generator-app && yarn run dev && cd .. && cd ./frontend && yarn run dev",
-    "init": "cd ./monitor-app && yarn install && cd .. && cd ./generator-app && yarn install && cd .. && cd ./frontend && yarn install",
+    "dev": "cd ./monitor-app && yarn run start:dev && cd .. && cd ./generator-app && yarn run start:dev",
+    "init": "cd ./monitor-app && yarn install && cd .. && cd ./generator-app && yarn install",
     "docker:dev": "docker compose -f compose.yaml watch"
   },
   "repository": "https://github.com/vorofikin/Diploma-project.git",
-  "author": "Andrew Nikiforov",
+  "author": "Andrew <nikiforov564@gmail.com>",
   "license": "MIT"
 }

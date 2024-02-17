@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: dev
-    command: yarn run dev
+    command: yarn run start:dev
     environment:
       NODE_ENV: production
     ports:

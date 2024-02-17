@@ -15,7 +15,7 @@ import { Server } from 'socket.io';
 import { IGetAllResponse } from '../cache-service/cache.service';
 import { MonitoringEvents } from './monitoring.events';
 
-@WebSocketGateway({ cors: true })
+@WebSocketGateway()
 export class MonitoringGateway
   implements OnGatewayConnection, OnGatewayDisconnect
 {

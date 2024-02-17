@@ -2,7 +2,7 @@
   "name": "generator-app",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon -w ./src -x node --experimental-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
+    "start:dev": "nodemon -w ./src -x node --experimental-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
   },
   "main": "index.js",
   "license": "MIT",

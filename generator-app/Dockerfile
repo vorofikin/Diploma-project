@@ -33,7 +33,7 @@ COPY --from=build /usr/src/app/dist ./dist
 
 EXPOSE 3000
 
-CMD yarn run dev
+CMD yarn run start:dev
 
 FROM base as dev
 COPY . .
@@ -45,4 +45,4 @@ RUN --mount=type=bind,source=package.json,target=package.json \
     yarn install --frozen-lockfile
 
 EXPOSE 3000
-CMD ["yarn", "run", "dev"]
+CMD ["yarn", "run", "start:dev"]
