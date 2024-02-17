@@ -4,7 +4,7 @@ services:
     build:
       context: ./monitor-app
       dockerfile: Dockerfile
-    command: yarn run start:dev
+    command: yarn run dev
     environment:
       NODE_ENV: production
     ports:
@@ -20,12 +20,33 @@ services:
             - monitor-app/node_modules/
         - action: rebuild
           path: ./monitor-app/package.json
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    command: yarn run dev
+    environment:
+      NODE_ENV: production
+    ports:
+      - 5173:5173
+    networks:
+      - internalnet
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /usr/src/frontend
+          ignore:
+            - frontend/node_modules/
+        - action: rebuild
+          path: ./frontend/package.json
   generator-app:
     container_name: generator-app
     build:
       context: ./generator-app
       dockerfile: Dockerfile
-    command: yarn run start:dev
+    command: yarn run dev
     networks:
       - internalnet
     environment:

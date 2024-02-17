@@ -1,7 +1,7 @@
 ## Installation
 
 ```bash
-$ yarn install
+$ yarn run init
 ```
 
 ## Running the app
@@ -9,23 +9,10 @@ $ yarn install
 ```bash
 # development
 $ yarn run docker:dev
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
 ```
 
-## Test
+## FrontEnd
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+$ Available at: 0.0.0.0:5173
 ```
