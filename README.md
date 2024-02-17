@@ -9,23 +9,10 @@ $ yarn install
 ```bash
 # development
 $ yarn run docker:dev
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
 ```
 
-## Test
+## FrontEnd
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+0.0.0.0:5173
 ```
